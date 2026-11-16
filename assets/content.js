@@ -22,6 +22,14 @@ window.LUMINIFEROUS = {
       date: '2026-11-16',
       tag: 'Coastal and environmental change',
       text: 'How Munroe Island in Kollam, Kerala, was formed, how it prospered, and why it is now sinking and losing its farmland. What studies say, and where hope remains. In Malayalam.'
+    },
+    {
+      title: 'ഓസോൺപാളി: വിള്ളലിൽ നിന്ന് വീണ്ടെടുപ്പിലേക്ക്',
+      lang: 'ml',
+      url: 'articles/ozone-depletion.html',
+      date: '2026-11-16',
+      tag: 'Atmosphere and climate',
+      text: 'How man-made gases tore a hole in the ozone layer over Antarctica, how the world came together to stop it with the Montreal Protocol, and what recovery looks like. In Malayalam.'
     }
   ],
 
