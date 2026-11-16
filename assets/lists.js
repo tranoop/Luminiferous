@@ -6,9 +6,10 @@ var months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','D
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 function fmt(d){var p=String(d||'').split('-');return p.length===3?(+p[2])+' '+months[+p[1]-1]+' '+p[0]:'';}
 document.querySelectorAll('[data-list]').forEach(function(host){
-  var items=(data[host.getAttribute('data-list')]||[]).slice().sort(function(a,b){
-    return (a.date||'')<(b.date||'')?1:(a.date||'')>(b.date||'')?-1:0;
-  });
+  var items=(data[host.getAttribute('data-list')]||[]).map(function(it,i){return {it:it,i:i};}).sort(function(a,b){
+    var x=a.it.date||'',y=b.it.date||'';
+    return x<y?1:x>y?-1:b.i-a.i;
+  }).map(function(o){return o.it;});
   if(!items.length){host.innerHTML='<p class="empty">Coming soon.</p>';return;}
   var ul=document.createElement('ul');ul.className='entries';
   items.forEach(function(it){
