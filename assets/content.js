@@ -38,6 +38,14 @@ window.LUMINIFEROUS = {
       date: '2026-11-16',
       tag: 'Weather and climate',
       text: 'Why a heatwave in Europe made headlines around the world: how heat domes and the omega block form, why the same temperature is deadlier in Europe than in India, and what global warming has to do with it. In Malayalam.'
+    },
+    {
+      title: 'എൽനിനോ: ചരിത്രം മാറ്റിയെഴുതിയ സമുദ്ര പ്രതിഭാസം',
+      lang: 'ml',
+      url: 'articles/el-nino.html',
+      date: '2026-11-16',
+      tag: 'Ocean and climate',
+      text: 'How El Nino, a warming of the tropical Pacific, has shaped history through famines, empires and public health, and how scientists came to understand it. In Malayalam.'
     }
   ],
 
