@@ -30,6 +30,14 @@ window.LUMINIFEROUS = {
       date: '2026-11-16',
       tag: 'Atmosphere and climate',
       text: 'How man-made gases tore a hole in the ozone layer over Antarctica, how the world came together to stop it with the Montreal Protocol, and what recovery looks like. In Malayalam.'
+    },
+    {
+      title: 'യൂറോപ്പിലെ ഉഷ്ണതരംഗം: എന്തുകൊണ്ടാണ് ലോകം ഇത്രയധികം ശ്രദ്ധിച്ചത്?',
+      lang: 'ml',
+      url: 'articles/europe-heatwave.html',
+      date: '2026-11-16',
+      tag: 'Weather and climate',
+      text: 'Why a heatwave in Europe made headlines around the world: how heat domes and the omega block form, why the same temperature is deadlier in Europe than in India, and what global warming has to do with it. In Malayalam.'
     }
   ],
 
