@@ -5,10 +5,18 @@ body{margin:0;background:var(--paper);color:var(--ink);font:1.125rem/1.75 Georgi
 a{color:var(--brand)}
 a:focus-visible{outline:3px solid var(--brand);outline-offset:3px}
 .wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.topbar{border-bottom:1px solid var(--line);background:var(--paper)}
+.bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 20px;padding-top:10px;padding-bottom:10px}
+.brand{font:700 1.05rem system-ui,-apple-system,sans-serif;color:var(--ink);text-decoration:none}
+.tabs{display:flex;flex-wrap:wrap;gap:4px}
+.tabs a{font:.95rem system-ui,-apple-system,sans-serif;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:8px}
+.tabs a:hover{background:var(--soft);color:var(--ink)}
+.tabs a[aria-current=page]{background:var(--soft);color:var(--brand);font-weight:700}
 .site-head{background:linear-gradient(135deg,#071a30,#0b3a53);color:#fff;padding:60px 0 52px}
 .site-head h1{font-size:clamp(2.4rem,8vw,4rem);line-height:1.05;margin:0 0 .3em;letter-spacing:-.01em}
 .site-head p{font-size:1.2rem;margin:0;max-width:30em;opacity:.92}
-h2{font:700 1.4rem/1.3 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;margin:2.6rem 0 .8rem}
+.page-title{font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.15;margin:2rem 0 .3em}
+.lead{color:var(--muted);margin:0 0 1.6rem}
 .entries{list-style:none;padding:0;margin:0;display:grid;gap:12px}
 a.entry{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-left:6px solid var(--c,var(--brand));border-radius:10px;padding:14px 18px}
 a.entry:hover{background:var(--soft)}
@@ -17,9 +25,8 @@ a.entry:hover{background:var(--soft)}
 .entry small{display:block;font:.85rem system-ui,sans-serif;color:var(--brand);margin-top:6px}
 .empty{border:1px dashed var(--line);border-radius:10px;padding:14px 18px;color:var(--muted);font-size:1rem}
 footer{text-align:center;color:var(--muted);font:.85rem system-ui,sans-serif;padding:32px 20px 48px}
-.back{display:inline-block;font:.9rem system-ui,sans-serif;margin:24px 0 8px}
-.article h1{font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.15;margin:.2em 0 .25em}
-.article h2{margin-top:2.2rem}
+.article h1{font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.15;margin:2rem 0 .25em}
+.article h2{font:700 1.4rem/1.3 system-ui,-apple-system,sans-serif;margin:2.2rem 0 .8rem}
 .byline{font:.9rem system-ui,sans-serif;color:var(--muted);margin:0 0 2rem}
 .article figure{margin:2rem 0}
 .article img{max-width:100%;height:auto;border-radius:10px;display:block}
