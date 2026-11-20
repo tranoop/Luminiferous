@@ -2,8 +2,9 @@
 (function(){
 var tabs=[
   ['Home','index.html'],
-  ['Popular science','popular-science.html'],
-  ['Education','education.html']
+  ['Popular Science','popular-science.html'],
+  ['Education','education.html'],
+  ['About','about.html']
 ];
 var base=new URL('../',document.currentScript.src).href;
 var cur=document.body.getAttribute('data-section');

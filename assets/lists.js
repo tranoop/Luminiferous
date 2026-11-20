@@ -5,12 +5,19 @@ var data=window.LUMINIFEROUS||{};
 var months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 function fmt(d){var p=String(d||'').split('-');return p.length===3?(+p[2])+' '+months[+p[1]-1]+' '+p[0]:'';}
+function norm(p){return p.replace(/\.html$/,'').replace(/\/$/,'');}
+var here=norm(location.pathname);
 document.querySelectorAll('[data-list]').forEach(function(host){
   var items=(data[host.getAttribute('data-list')]||[]).map(function(it,i){return {it:it,i:i};}).sort(function(a,b){
     var x=a.it.date||'',y=b.it.date||'';
     return x<y?1:x>y?-1:b.i-a.i;
   }).map(function(o){return o.it;});
-  if(!items.length){host.innerHTML='<p class="empty">Coming soon.</p>';return;}
+  if(host.hasAttribute('data-exclude-self')) items=items.filter(function(it){return norm(new URL(base+it.url).pathname)!==here;});
+  var lim=parseInt(host.getAttribute('data-limit'),10); if(lim) items=items.slice(0,lim);
+  if(!items.length){
+    var sec=host.closest('.more'); if(sec){sec.hidden=true;return;}
+    host.innerHTML='<p class="empty">Coming soon.</p>';return;
+  }
   var ul=document.createElement('ul');ul.className='entries';
   items.forEach(function(it){
     var meta=[fmt(it.date),it.tag].filter(Boolean).join(', ');
