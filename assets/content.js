@@ -60,7 +60,7 @@ window.LUMINIFEROUS = {
       title: 'The Falling Apple and the Flowing Water',
       url: 'explainers/continuum-hypothesis.html',
       image: 'assets/thumbs/continuum-hypothesis.webp',
-      date: '2026-11-24',
+      date: '2026-11-16',
       tag: 'Physics, fluid dynamics',
       text: 'Why water can be treated as a smooth fluid even though it is made of molecules: fluid parcels, the representative volume and the Knudsen number.'
     }
