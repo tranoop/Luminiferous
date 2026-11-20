@@ -15,7 +15,7 @@ document.querySelectorAll('[data-list]').forEach(function(host){
   items.forEach(function(it){
     var meta=[fmt(it.date),it.tag].filter(Boolean).join(', ');
     var li=document.createElement('li');
-    li.innerHTML='<a class="entry" href="'+esc(base+it.url)+'"><b'+(it.lang?' lang="'+esc(it.lang)+'"':'')+'>'+esc(it.title)+'</b><span>'+esc(it.text||'')+'</span><small>'+esc(meta)+'</small></a>';
+    li.innerHTML='<a class="entry" href="'+esc(base+it.url)+'">'+(it.image?'<img class="thumb" src="'+esc(base+it.image)+'" alt="" width="640" height="360" loading="lazy">':'')+'<b'+(it.lang?' lang="'+esc(it.lang)+'"':'')+'>'+esc(it.title)+'</b><span>'+esc(it.text||'')+'</span><small>'+esc(meta)+'</small></a>';
     ul.appendChild(li);
   });
   host.innerHTML='';host.appendChild(ul);

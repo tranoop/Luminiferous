@@ -44,3 +44,4 @@ footer{text-align:center;color:var(--muted);font:.85rem system-ui,sans-serif;pad
 .col h2 a{color:inherit;text-decoration:none}
 .col h2 a:hover{color:var(--brand)}
 @media(max-width:720px){.cols{grid-template-columns:1fr}}
+.thumb{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:6px;margin:0 0 10px;background:var(--soft)}
