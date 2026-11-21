@@ -63,6 +63,14 @@ window.LUMINIFEROUS = {
       date: '2026-11-16',
       tag: 'Physics, fluid dynamics',
       text: 'Why water can be treated as a smooth fluid even though it is made of molecules: fluid parcels, the representative volume and the Knudsen number.'
+    },
+    {
+      title: 'Chasing the Parcel or Watching the River?',
+      url: 'explainers/eulerian-lagrangian.html',
+      image: 'assets/thumbs/eulerian-lagrangian.webp',
+      date: '2026-11-21',
+      tag: 'Physics, fluid dynamics',
+      text: 'Two ways to watch a flowing fluid: follow a moving parcel (Lagrangian) or watch from fixed stations (Eulerian), and why our laws and our measurements do not match. Part 2.'
     }
   ]
 
