@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Chasing the Parcel or Watching the River? | Fluid Dynamics Foundations, Part 2</title>
+<meta name="description" content="Two ways to observe a flowing fluid: follow a moving parcel (the Lagrangian view) or watch from fixed stations (the Eulerian view). With two illustrations and three short videos.">
+<meta property="og:type" content="article"><meta property="og:site_name" content="Luminiferous">
+<meta property="og:title" content="Chasing the Parcel or Watching the River?"><meta property="og:description" content="Two ways to observe a flowing fluid: follow a moving parcel (the Lagrangian view) or watch from fixed stations (the Eulerian view). With two illustrations and three short videos.">
+<meta property="og:image" content="https://www.luminiferous.in/assets/share/eulerian-lagrangian.jpg"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌊%3C/text%3E%3C/svg%3E">
+<style>
+
+:root{--paper:#fbfaf7;--ink:#1b2430;--muted:#5b6776;--line:#e3e0d8;--card:#fff;--brand:#0f6b8a;--soft:#e8f3f7}
+@media(prefers-color-scheme:dark){:root{--paper:#0e1620;--ink:#e6edf3;--muted:#9aa8b6;--line:#243244;--card:#142030;--brand:#5cc3e4;--soft:#12303d}}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--paper);color:var(--ink);font:1.125rem/1.75 Georgia,"Iowan Old Style","Times New Roman",serif;counter-reset:sec}
+h1,h3,h4,.top,.eyebrow,figcaption,.preset-btn,label,.metric-title{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 20px;background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);font-size:.9rem}
+.top b{color:var(--brand);letter-spacing:.02em}#bar{position:absolute;left:0;bottom:-1px;height:3px;width:0;background:var(--brand)}
+.toc{position:relative}.toc summary{cursor:pointer;font-weight:600;list-style:none;padding:6px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.toc nav{position:absolute;right:0;top:42px;width:min(86vw,360px);max-height:70vh;overflow:auto;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px;box-shadow:0 12px 30px rgba(0,0,0,.2)}
+.toc nav a{display:block;padding:7px 10px;border-radius:8px;color:var(--ink);text-decoration:none;font-size:.9rem;line-height:1.35}.toc nav a:hover{background:var(--soft)}.toc nav a.h1{font-weight:700}.toc nav a.h3{padding-left:24px;color:var(--muted)}
+.hero{background:radial-gradient(circle at 80% 20%,#1b7f9e 0,transparent 45%),linear-gradient(135deg,#071a30,#0b3a53);color:#fff;padding:72px 20px 64px}
+.hero .in{max-width:760px;margin:auto}.hero h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.1;margin:.4em 0 .3em}.hero .sub{font-size:1.25rem;opacity:.9;margin:0 0 1rem}.hero .meta{font:.9rem system-ui,sans-serif;opacity:.75;margin:0}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7dd3fc}
+main{max-width:1000px;margin:0 auto;padding:0 20px 40px}main section>:is(p,ul,h1,h3,.formula){max-width:720px;margin-left:auto;margin-right:auto}
+main section>h1{font-size:clamp(1.6rem,4vw,2.2rem);line-height:1.2;margin-top:3.2rem;margin-bottom:.8rem}
+main section>h1::before{counter-increment:sec;content:"Part " counter(sec);display:block;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);margin-bottom:.3rem}
+h3{font-size:1.3rem;margin-top:2.4rem;margin-bottom:.4rem;color:var(--brand)}
+.formula{font-family:Georgia,serif;font-size:1.5rem;text-align:center;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:14px 12px;margin-top:1.2rem;margin-bottom:1.2rem}
+figure{margin:2rem auto;max-width:980px}figure img,figure video{width:100%;height:auto;display:block;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.18);background:#000}figure.zoom img{cursor:zoom-in}
+figcaption{font-size:.88rem;color:var(--muted);text-align:center;margin-top:.7rem;line-height:1.4}.hint{opacity:.7}
+ul.scales,ul.regimes{list-style:none;padding:0;display:grid;gap:12px}
+ul.scales li,ul.regimes li{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--c);border-radius:12px;padding:12px 16px;font-size:1.02rem;line-height:1.6}
+ul.scales li p,ul.regimes li p{margin:0}
+ul.scales li:nth-child(1){--c:#f43f5e}ul.scales li:nth-child(2){--c:#22c55e}ul.scales li:nth-child(3){--c:#c084fc}
+ul.regimes li:nth-child(1){--c:#22c55e}ul.regimes li:nth-child(2){--c:#38bdf8}ul.regimes li:nth-child(3){--c:#f59e0b}ul.regimes li:nth-child(4){--c:#f43f5e}
+#key-idea-to-remember{background:linear-gradient(135deg,#0b3a53,#0f6b8a);color:#fff;border-radius:20px;padding:12px 28px 28px;margin:3rem auto;max-width:760px}
+#key-idea-to-remember h1::before{content:"Remember";color:#7dd3fc}#key-idea-to-remember p{font-size:1.35rem;line-height:1.5;margin:0}
+footer{text-align:center;color:var(--muted);font:.85rem system-ui,sans-serif;padding:24px 20px 48px}
+#lb{display:none;position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.88);align-items:center;justify-content:center;padding:16px;cursor:zoom-out}#lb.on{display:flex}#lb img{max-width:100%;max-height:100%;border-radius:8px}
+
+.back{color:var(--brand);text-decoration:none;font-weight:600}.back:hover{text-decoration:underline}
+figure.vid{max-width:820px}.yt{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;box-shadow:0 10px 30px rgba(0,0,0,.18)}.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+figcaption a{color:var(--brand)}
+.formula math{font-size:1em}
+nav.chapters{max-width:720px;margin:2.5rem auto 0;padding:0 20px;font:1rem/1.5 system-ui,-apple-system,sans-serif}
+nav.chapters a{display:block;padding:14px 18px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);text-decoration:none}
+nav.chapters a:hover{background:var(--soft)}nav.chapters small{display:block;color:var(--muted)}
+.ytfb{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:16px;text-align:center;color:#fff;text-decoration:none;background:#111;font:600 1.1rem system-ui,-apple-system,sans-serif}
+.ytfb small{font-weight:400;font-size:.8rem;opacity:.8;max-width:34em;line-height:1.4}
+</style>
+</head><body>
+<header class="top"><a class="back" href="../education.html">Education</a><b>Fluid Dynamics Foundations</b><details class="toc" id="toc"><summary>Contents</summary><nav id="tocList"></nav></details><div id="bar"></div></header>
+<div class="hero"><div class="in"><span class="eyebrow">Fluid dynamics foundations · Part 2</span><h1>Chasing the Parcel or Watching the River?</h1><p class="sub">Two ways to observe a flowing fluid</p><p class="meta">About 7 minutes · 2 illustrations · 3 videos</p></div></div>
+<main>
+<section class="level1">
+<h1>Two ways to observe a flowing fluid</h1>
+<p>At the end of Chapter 1, we left Isaac Newton’s orchard with a powerful new tool: the continuum hypothesis. By zooming out from individual molecules to the Representative Elementary Volume (REV), we defined the optimum size for an imaginary fluid parcel—one small enough to capture local properties, yet large enough that density, velocity, pressure, and temperature are smooth and uniform across it.</p>
+<p>Now that we know the right size for our fluid parcel, how do we actually observe it in motion and apply the fundamental laws of physics? At first glance, the answer seems straightforward. Just as Newton watched the falling apple and applied his second law of motion (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐅</mi><mo>=</mo><mi>m</mi><mi>𝐚</mi></mrow><annotation encoding="application/x-tex">\mathbf{F} = m\mathbf{a}</annotation></semantics></math>) to it, we can try to watch a single water parcel as it moves.</p>
+<p>The most natural starting point is to treat our fluid parcel the exact same way Newton treated the apple. We pick one specific parcel, tag it, follow it wherever it travels through space and time, and observe how forces change its motion. In mechanics, this way of observing motion is called the <strong>Lagrangian method</strong>, named after the eighteenth-century mathematician Joseph-Louis Lagrange.</p>
+<p>Throughout classical physics, the Lagrangian approach is the method we rely on most. Whether we are predicting the trajectory of a cannonball, the swing of a pendulum, or the orbit of a planet, we identify a distinct body of matter and track its position, velocity, and temperature as time progresses.</p>
+<figure class="zoom"><img src="images/eulerian-lagrangian-1.webp" alt="Three examples of the Lagrangian method: Newton and the falling apple, a cannonball trajectory, and a fluid parcel tracked along its path" width="1600" height="893" loading="lazy"><figcaption>The Lagrangian method: we pick a specific collection of matter, whether an apple, a cannonball or a fluid parcel, and track its position, velocity and properties over time. <span class="hint">(tap to enlarge)</span></figcaption></figure>
+<h3>The water balloon in the pipe: a control mass</h3>
+<p>Tracking a bare parcel of water inside a rushing stream is tricky, so let us start with a simpler thought experiment. Return to the pipe from Chapter 1 and imagine water flowing steadily from a cold room into a warm room. Inside the pipe, picture a tiny, ultra-thin, flexible water balloon sized to our Representative Elementary Volume (REV), filled with the exact same water and carried effortlessly along with the flow.</p>
+<figure class="vid"><div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/zU3GNTtYeWw" title="Video 1" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>Video 1. A water balloon of fixed mass is carried from the cold zone into the warm zone: its volume and shape change, but its mass does not. <a href="https://www.youtube.com/watch?v=zU3GNTtYeWw">Watch on YouTube</a></figcaption></figure>
+<p>As the water balloon travels from the cold section into the warm section, the water inside it heats up and expands. Its <strong>volume</strong> changes, and its <strong>shape</strong> stretches as it squeezes through bends in the pipe, yet the <strong>mass</strong> of water trapped inside the rubber skin remains strictly constant.</p>
+<p>In mechanics and thermodynamics, a fixed, identifiable collection of matter like the water inside this balloon is called a <strong>control mass</strong> (or closed system), enclosed by a moving <strong>material boundary that type of boundary is called control surface</strong> . Just like Newton’s solid apple, our water balloon has a fixed mass. As long as its boundary keeps the exact same fluid molecules together, applying classical physics is straightforward: we ride along with the balloon and record how its temperature, volume, and velocity change over time. Hence in Lagrangian approach we are using control mass.</p>
+<h3>The Lagrangian derivative and the laws of physics</h3>
+<p>Because we are riding along with a specific moving parcel of matter, the rate at which any of its properties changes with time is given a special symbol:</p>
+<div class="formula"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mi>D</mi><mrow><mi>D</mi><mi>t</mi></mrow></mfrac><annotation encoding="application/x-tex">\frac{D}{Dt}</annotation></semantics></math></div>
+<p>This operator is called the <strong>Lagrangian derivative</strong>. Because it follows a specific collection of matter—a fluid particle or parcel—it is also known as the <strong>particle derivative</strong>, <strong>substantial derivative</strong>, or <strong>material derivative</strong>.</p>
+<p>This perspective is crucial for one profound reason: <strong>all of our fundamental laws of classical physics are inherently Lagrangian.</strong></p>
+<ul class="scales">
+<li><p><strong>Conservation of mass</strong> states that the mass of a specific, identifiable collection of matter does not change over time (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>D</mi><mi>m</mi></mrow><mrow><mi>D</mi><mi>t</mi></mrow></mfrac><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\frac{Dm}{Dt} = 0</annotation></semantics></math>).</p></li>
+<li><p><strong>Newton’s second law of motion</strong> states that the net force acting on a specific body of matter equals its mass times the rate of change of its velocity (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐅</mi><mo>=</mo><mi>m</mi><mfrac><mrow><mi>D</mi><mi>𝐮</mi></mrow><mrow><mi>D</mi><mi>t</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\mathbf{F} = m\frac{D\mathbf{u}}{Dt}</annotation></semantics></math>).</p></li>
+<li><p><strong>Conservation of energy</strong> (the first law of thermodynamics) tracks the heat added to and the work done by a specific collection of matter as it moves.</p></li>
+</ul>
+</section>
+<section class="level1">
+<h1>Where the Lagrangian method runs into trouble</h1>
+<p>For a solid apple—or water sealed inside a rubber balloon—a real physical boundary holds the object together. What happens when we strip away the rubber skin of the balloon and try to follow a real fluid parcel bounded only by our imagination?</p>
+<p>Suppose that we inject a tiny cube of red dye into the water so we can watch a single parcel travel down the pipe. Within seconds, the trouble begins. Unlike a rigid solid, a fluid continuously deforms. Friction near the pipe walls slows the outer layers while the core rushes ahead, stretching our neat cube into a long, thin ribbon. When the flow encounters a valve, a bend, or a turbulent eddy, the parcel twists, folds, splits into delicate filaments, and mixes with its neighbours.</p>
+<figure class="vid"><div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/qSG6-ovx0v4" title="Video 2" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>Video 2. A cube of red dye is stretched and sheared as the flow carries it from the cold zone into the warm zone. <a href="https://www.youtube.com/watch?v=qSG6-ovx0v4">Watch on YouTube</a></figcaption></figure>
+<p>Before long, our original "water apple" is smeared across a huge stretch of the pipe. Trying to track its distorted boundary, calculate the forces acting on its tangled surface, and simultaneously follow millions of other parcels becomes practically impossible. If fluid mechanics relied solely on chasing individual parcels, our story would end right here.</p>
+</section>
+<section class="level1">
+<h1>The Eulerian view: watching from fixed stations</h1>
+<p>Fortunately, there is a second way to observe a flow, developed by the eighteenth-century Swiss mathematician <strong>Leonhard Euler</strong>.</p>
+<p>Instead of jumping into a kayak to chase a single parcel of water down a river, imagine standing still on a bridge and looking straight down at a fixed patch of water beneath you. You no longer care which specific water parcel is passing under the bridge at any given second; you simply record the velocity, pressure, density, and temperature of <em>whatever</em> fluid happens to occupy that fixed spot in space at that time.</p>
+<p>This is the <strong>Eulerian method</strong>. Rather than tracking moving parcels, we define fixed coordinates <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x,y,z)</annotation></semantics></math> in space and describe the flow as continuous <strong>fields</strong>—velocity <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐮</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi><mo>,</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathbf{u}(x,y,z,t)</annotation></semantics></math>, pressure <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi><mo>,</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">p(x,y,z,t)</annotation></semantics></math>, and temperature <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi><mo>,</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">T(x,y,z,t)</annotation></semantics></math>.</p>
+<p>To see the Eulerian view in everyday life, think of a weather map showing the temperature in capital cities of some states in India.</p>
+<figure class="vid"><div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/gVfJruQnFy8" title="Video 3" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>Video 3. Fixed weather stations on a map of India record the temperature at their own locations as time passes. <a href="https://www.youtube.com/watch?v=gVfJruQnFy8">Watch on YouTube</a></figcaption></figure>
+<p>The weather station does not float away inside a moving balloon of air to see where that air goes. It stays bolted to the ground at one fixed location and records how the temperature changes with time as different air parcels blow past. Because we are measuring how a property changes with time at a fixed point in the field that is space is constant, the rate of change recorded by that stationary sensor is written as a partial derivative with respect to time:</p>
+<div class="formula"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mi>∂</mi><mrow><mi>∂</mi><mi>t</mi></mrow></mfrac><annotation encoding="application/x-tex">\frac{\partial}{\partial t}</annotation></semantics></math></div>
+<p>In fluid mechanics, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mi>∂</mi><mrow><mi>∂</mi><mi>t</mi></mrow></mfrac><annotation encoding="application/x-tex">\frac{\partial}{\partial t}</annotation></semantics></math> is called the <strong>local derivative</strong> (or the <strong>Eulerian time derivative</strong> / <strong>field derivative</strong>).</p>
+<p>Instead of following a moving <strong>control mass as Lagrangian</strong>, the Eulerian observer draws an imaginary, fixed box in space—such as a specific section of a pipe or a grid cell over a city—and watches fluid flow in and out of it. This fixed region in space is called a <strong>control volume</strong>, and its imaginary boundary, through which mass, momentum, and energy freely cross, is called a <strong>control surface</strong>.</p>
+<figure class="zoom"><img src="images/eulerian-lagrangian-2.webp" alt="Two pipes. Top: a control mass, a fixed set of particles inside a moving, deforming dashed boundary. Bottom: a control volume, a fixed region of the pipe that fluid enters and leaves, with a thermometer measuring the local temperature" width="1600" height="893" loading="lazy"><figcaption>Control mass (Lagrangian): the same particles, inside a boundary that moves and deforms. Control volume (Eulerian): a fixed region that mass freely crosses. <span class="hint">(tap to enlarge)</span></figcaption></figure>
+<p>In experiments and engineering, the Eulerian view is a lifesaver:</p>
+<ul class="scales">
+<li><p><strong>Weather stations</strong> bolted to the ground measure wind speed, pressure, and temperature at a fixed latitude and longitude.</p></li>
+<li><p><strong>Pressure gauges and flow meters</strong> tapped into the wall of a pipe read fluid properties at fixed points along the line.</p></li>
+<li><p><strong>Numerical ocean and atmospheric models</strong> divide the globe into fixed grid cells and compute how velocity, temperature, and pressure evolve inside each cell.</p></li>
+</ul>
+</section>
+<section class="level1">
+<h1>The grand dilemma</h1>
+<p>Here, however, we run headfirst into the central paradox of fluid mechanics:</p>
+<ul class="scales">
+<li><p><strong>Our observations and measurements are Eulerian:</strong> we want to measure and compute fluid fields at fixed points <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x,y,z)</annotation></semantics></math> inside a control volume.</p></li>
+<li><p><strong>Our fundamental laws of physics are Lagrangian:</strong> Newton’s second law (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐅</mi><mo>=</mo><mi>m</mi><mi>𝐚</mi></mrow><annotation encoding="application/x-tex">\mathbf{F} = m\mathbf{a}</annotation></semantics></math>) and the laws of thermodynamics apply to a moving parcel of fixed mass (a control mass), not to an empty geometric box in space!</p></li>
+</ul>
+<p>How can we apply Lagrangian laws of physics to Eulerian observations without chasing individual fluid parcels down the pipe? We need a mathematical translator—a bridge that connects the rate of change experienced by a moving fluid parcel (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mi>D</mi><mrow><mi>D</mi><mi>t</mi></mrow></mfrac><annotation encoding="application/x-tex">\frac{D}{Dt}</annotation></semantics></math>) to the rates of change measured at fixed points in space (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mi>∂</mi><mrow><mi>∂</mi><mi>t</mi></mrow></mfrac><annotation encoding="application/x-tex">\frac{\partial}{\partial t}</annotation></semantics></math>).</p>
+<p>Building that bridge is the story of Chapter 3.</p>
+</section>
+<section id="key-idea-to-remember" class="level1">
+<h1>Key idea to remember</h1>
+<p>The Lagrangian view follows a moving fluid parcel of fixed mass (a control mass), which is where the fundamental laws of physics naturally live; the Eulerian view watches fluid flow through fixed points in space (a control volume), which is how we practically measure and model flows.</p>
+</section>
+</main>
+<nav class="chapters"><a href="continuum-hypothesis.html"><small>Previous</small>Part 1: The Falling Apple and the Flowing Water</a></nav>
+<footer>Fluid dynamics foundations · Part 2 · Luminiferous</footer><div id="lb"></div>
+<script>(function(){
+const nav=document.getElementById('tocList'),tg=document.getElementById('toc');
+document.querySelectorAll('main h1, main h3').forEach((h,i)=>{h.id='s'+i;const a=document.createElement('a');a.href='#s'+i;a.className=h.tagName.toLowerCase();a.textContent=h.textContent;a.onclick=()=>tg.open=false;nav.appendChild(a)});
+const bar=document.getElementById('bar'),d=document.documentElement;
+addEventListener('scroll',()=>{bar.style.width=(100*d.scrollTop/(d.scrollHeight-d.clientHeight))+'%'},{passive:true});
+const lb=document.getElementById('lb');
+document.querySelectorAll('figure.zoom img').forEach(im=>im.onclick=()=>{lb.innerHTML='';const c=document.createElement('img');c.src=im.src;c.alt=im.alt;lb.appendChild(c);lb.classList.add('on')});
+lb.onclick=()=>lb.classList.remove('on');addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});
+})();</script>
+<script>/* YouTube cannot play embedded videos in a page opened straight from a computer (no web address to identify). Show a link instead. */
+if(location.protocol==='file:'){document.querySelectorAll('.yt iframe').forEach(function(f){var m=f.src.match(/embed\/([\w-]+)/);if(!m)return;var a=document.createElement('a');a.href='https://www.youtube.com/watch?v='+m[1];a.target='_blank';a.rel='noopener';a.className='ytfb';a.innerHTML='<span>Watch on YouTube</span><small>Videos play inside the page once it is online. This copy was opened from a computer, where YouTube cannot show them.</small>';f.replaceWith(a)})}
+</script>
+</body></html>
