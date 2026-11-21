@@ -1,6 +1,6 @@
 # Luminiferous
 
-Exploring science and transmitting knowledge.
+Unravelling Science, Sharing Knowledge.
 
 - `index.html` is the home page (two columns: Popular Science and Education); `popular-science.html`, `education.html` and `about.html` are the other tabs
 - `assets/content.js` is the list of everything shown as a tile (edit this to add content; tiles sort newest first, each can have a thumbnail)
