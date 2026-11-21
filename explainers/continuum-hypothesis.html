@@ -2,6 +2,9 @@
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Falling Apple and the Flowing Water: the Continuum Hypothesis</title>
 <meta name="description" content="An illustrated, interactive introduction to the continuum hypothesis, fluid parcels, the Representative Elementary Volume and the Knudsen number.">
+<meta property="og:type" content="article"><meta property="og:site_name" content="Luminiferous">
+<meta property="og:title" content="The Falling Apple and the Flowing Water"><meta property="og:description" content="An illustrated, interactive introduction to the continuum hypothesis, fluid parcels, the Representative Elementary Volume and the Knudsen number.">
+<meta property="og:image" content="https://www.luminiferous.in/assets/share/continuum-hypothesis.jpg"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌊%3C/text%3E%3C/svg%3E">
 <style>
 :root{--paper:#fbfaf7;--ink:#1b2430;--muted:#5b6776;--line:#e3e0d8;--card:#fff;--brand:#0f6b8a;--soft:#e8f3f7}
@@ -139,8 +142,12 @@ footer{text-align:center;color:var(--muted);font:.85rem system-ui,sans-serif;pad
     .metric-card.box-metric { border-left-color: var(--box-color); }
     .metric-title { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
     .metric-value { font-size: 1.35rem; font-weight: 700; margin-top: 4px; font-variant-numeric: tabular-nums; }
-  </style></head><body>
-<header class="top"><b>Fluid Dynamics Foundations</b><details class="toc" id="toc"><summary>Contents</summary><nav id="tocList"></nav></details><div id="bar"></div></header>
+  .back{color:var(--brand);text-decoration:none;font-weight:600}.back:hover{text-decoration:underline}
+nav.chapters{max-width:720px;margin:2.5rem auto 0;padding:0 20px;font:1rem/1.5 system-ui,-apple-system,sans-serif}
+nav.chapters a{display:block;padding:14px 18px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);text-decoration:none}
+nav.chapters a:hover{background:var(--soft)}nav.chapters small{display:block;color:var(--muted)}
+</style></head><body>
+<header class="top"><a class="back" href="../education.html">Education</a><b>Fluid Dynamics Foundations</b><details class="toc" id="toc"><summary>Contents</summary><nav id="tocList"></nav></details><div id="bar"></div></header>
 <div class="hero"><div class="in"><span class="eyebrow">Fluid dynamics foundations · Part 1</span><h1>The Falling Apple and the Flowing Water</h1><p class="sub">An illustrated, interactive introduction to the continuum hypothesis</p><p class="meta">About 9 minutes · 3 illustrations · 1 video · 2 interactive simulations</p></div></div>
 <main><section id="a-simple-question-becomes-a-difficult-problem" class="level1">
 <h1>A simple question becomes a difficult problem</h1>
@@ -283,6 +290,7 @@ footer{text-align:center;color:var(--muted);font:.85rem system-ui,sans-serif;pad
 <p><strong>A fluid can be treated as continuous when the molecular scale is far smaller than the scale of the flow.</strong></p>
 </section>
 </main>
+<nav class="chapters"><a href="eulerian-lagrangian.html"><small>Next</small>Part 2: Chasing the Water or Watching the River?</a></nav>
 <footer>Continuum hypothesis · interactive explainer</footer><div id="lb"></div>
 <script>(function() {
   const canvas = document.getElementById('simCanvas');

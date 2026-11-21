@@ -58,3 +58,5 @@ footer{text-align:center;color:var(--muted);font:.85rem system-ui,sans-serif;pad
 .more .entries{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
 .more .entry span{display:none}
 .more .entry b{font-size:1rem}
+/* phone tab bar: keep all four tabs on one line */
+@media(max-width:520px){.bar{gap:4px 12px}.tabs{gap:2px}.tabs a{padding:6px 7px;font-size:.85rem}}
