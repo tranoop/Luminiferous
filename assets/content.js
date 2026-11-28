@@ -57,7 +57,7 @@ window.LUMINIFEROUS = {
 
   'education': [
     {
-      title: 'The Falling Apple and the Flowing Water',
+      title: 'Chapter 1: The Falling Apple and the Flowing Water',
       url: 'explainers/continuum-hypothesis.html',
       image: 'assets/thumbs/continuum-hypothesis.webp',
       date: '2026-11-16',
@@ -65,7 +65,7 @@ window.LUMINIFEROUS = {
       text: 'Why water can be treated as a smooth fluid even though it is made of molecules: fluid parcels, the representative volume and the Knudsen number.'
     },
     {
-      title: 'Chasing the Water or Watching the River?',
+      title: 'Chapter 2: Chasing the Water or Watching the River?',
       url: 'explainers/eulerian-lagrangian.html',
       image: 'assets/thumbs/eulerian-lagrangian.webp',
       date: '2026-11-21',
